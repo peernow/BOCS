@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}BOCS{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="static/styles/basic.css" type="text/css"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/basic.css') }}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <link href='NAME_OF_BOOTSTRAP_FOLDER/css/bootstrap.css' rel='stylesheet'> -->
+    <!-- https://getbootstrap.com/docs/3.4/css/ -->
+  </head>
+  <body>
+    <header>
+      <div>
+      <img class="ozone_left" src="{{ url_for('static', filename='images/hole7.jpg') }}" width=200 alt="Ozone hole example"/>
+      <img class="ozone_right" src="{{ url_for('static', filename='images/ozone_hole_3.jpeg') }}" width=200 alt="Ozone hole example">
+      <h1>BOx model - Chemistry for the Stratosphere (BOCS)</h1>
+      <nav>
+	<ul class="nav">
+	  <li class="tabli"><a class="tab" href="{{ url_for('about') }}">About</a></li>
+	  <li class="tabli"><a class="tab" href="{{ url_for('Modelrun') }}">Run model</a></li>
+	  <li class="tabli"><a class="tab" href="{{ url_for('Documentation') }}">Documentation</a></li>
+	  <li class="tabli"><a class="tab" href="{{ url_for('Tutorial') }}">Tutorial</a></li>
+	</ul>
+	<nav>
+	  </div>
+    </header>
+
+    <div class="content">
+      {% block content %} {% endblock %}
+          </div>
+  </body>
+  </html>
+    
+<!-- useful resource: https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application -->

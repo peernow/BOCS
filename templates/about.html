@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<b>BOCS</b> is a simplfied <a href="https://www.sciencedirect.com/topics/engineering/box-model#:~:text=A%20box%20model%20is%20based,vertical%20dimensions%20of%20the%20box.">box model</a> of atmospheric chemistry for the stratosphere to support student learning. It allows for the interactive exploration of key stratospheric chemical mechanisms, including the Chapman mechanism of ozone production and loss, as well as several catalytic ozone loss cycles that determine the shape of the stratospheric ozone layer. Heterogeneous chemistry, for example in the presence of polar stratospheric clouds, can optionally be included in the calculations and helps students understand the development of Antarctic ozone holes.
+  </p>
+  <p>
+    This website provides an interface for the modelling tool (<a href="{{ url_for('Modelrun') }}">run model</a>). A detailed <a href="{{ url_for('Tutorial') }}">tutorial</a> runs through an example use case. In addition, a <a href="{{ url_for('Documentation') }}">documentation</a> of the chemical reactions and their scientific background is provided. These explanations directly build upon the content of the module ENV-5015A on Atmospheric Chemistry and Global Change at the University of East Anglia (UEA).
+    </p>
+  <p>
+    BOCS is undergoing constant development. Please inform Dr Peer Nowack about any errors you might find. Suggestions for improvements are also always highly appreciated. Up-to-date contact details can be found <a href="https://research-portal.uea.ac.uk/en/persons/peer-nowack">here</a>.
+    </p>
+<!-- </div> -->
+<div class="small_font">
+Reference for the ozone hole images:<br>
+NASA Ozone watch - https://ozonewatch.gsfc.nasa.gov/
+</div>
+
+{% endblock %}
+

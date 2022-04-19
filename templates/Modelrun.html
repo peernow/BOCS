@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %} BOCS - Parameter input {% endblock %}</h2>
+<!-- <div class="how_wide" id="info_section"> -->
+<!--   <img class="ozone" src="./static/ozone.jpg" width=300 alt="Ozone hole example"> -->
+<!-- <p>Select parameters including (see also <a href="http://www.fa\ -->
+<!-- cebook.com">documentation</a>) -->
+<p>Select parameters including:
+  <ul>
+    <li>altitude and latitude (affect air density and photolysis reactions),
+    <li>temperature (affects speed of chemical reactions),
+    <li>initial chemical composition
+  </ul>
+  of the stratospheric box before running the calculation (click "Run").<br><br>
+For the start time assume a 360-day calendar (30 days per month).</p>
+</div>
+<div class="content" id="entry_form">
+<form method=post action="">
+  <table>
+  {% for field in form %}
+  <tr>
+     <td class="label">{{ field.label }}</td><td>{{ field(size=12) }}</td>
+    <!-- <td>{{ field.label }}</td> -->
+    {% if field.errors %}
+      <td><ul class=errors>
+      {% for error in field.errors %}
+        <li><font color="red">{{ error }}</font></li>
+      {% endfor %}</ul></td>
+    {% endif %}
+    </tr>
+  {% endfor %}
+  <p><input type=submit value=Run></form></p>
+</div>
+<div id="images_output">
+<p>
+  {% if result != None %}
+<!-- will need to de-hardcode the path to the output file later -->
+<img src="{{ url_for('static',filename='images/output.png') }}" width=800>
+<br><br><a style="font-weight:bold" href="{{ url_for('static',filename='images/output.csv') }}">CSV output file</a>
+<br<<br>
+{% endif %}
+</p>
+</div>
+
+<!-- </body> -->
+<!-- </html> -->
+
+{% endblock %}
