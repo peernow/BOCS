@@ -2,12 +2,45 @@
 
 {% block content %}
 <h2>{% block title %} BOCS - Tutorial {% endblock %}</h2>
-<div class="how_wide_2" id="doc">
+<div class="how_wide_2" id="doc" style="line-height:1.5">
   <!-- Go through one or several examples. Highlight that students should open a second tab where they run the model while going through the text. -->
-  Here we walk you through an example application of BOCS. First, conduct the following steps:
+  Here we walk you through a few example applications of BOCS. Before we start, carry out the following two steps:<p style="text-align: block; padding-top: 0px; padding-bottom: 15px; padding-left: 15px; float: right; display: block;"><img style="margin: 10px;" src="../static/images/input_field_highlighted.png" width=300 align="right"><br><br><br><span style="margin: 10px; font-size: small; width: 300px; display: inline-block; ">Figure 1. Default input settings under <a href="{{ url_for('Modelrun') }}">run model</a>. Highlighted in red are fields to be modified as part of exercise 1.</span></p>
   <ol class="tutorial">
-    <li>Open a second tab with another instance of the BOCS webpage. Go to "Run model". This will allow you to keep reading this tutorial while running the model.</li>
-    <li>Under "Run Model" you will see the entry form. Change the entries to the ones shown in Figure 1 provided here. Then click the "Run" button.</li>
-    </ol>
+    <li>Open a second tab with another instance of the BOCS webpage. Go to <a href="{{ url_for('Modelrun') }}">run model</a>. This will allow you to keep reading this tutorial while running the model.</li>
+    <li>Under <a href="{{ url_for('Modelrun') }}">run model</a> you will find the entry form for mass mixing ratios of each chemical species involved in the BOCS mechanism, as well as for certain physical environment parameters (Figure 1). For all simulations, you will modify these initial chemical and envionmental conditions and analyse their effect on the time evolution of the concentration of all chemical species involved. Once you have specified the desired conditions, you can conduct a new simulation by clicking the "Run" button.</li>
+  </ol>
+  <p>
+    We will now go through exercises that illustrate how BOCS can be used to understand key concepts of stratospheric chemistry. Afterwards, using BOCS, you will be able to (learning outcomes):
+  
+    <ul>
+      <li><b>Convert</b> concentration measures of chemical species to <b>estimate</b> appropriate input measures for BOCS.</li>
+      <li><b>Interpret</b> results of different sets of BOCS simulations to study the effect of changing the initial chemical and physical conditions on stratospheric ozone.</li>
+      <li><b>Compile</b> a list of the main chemical reactions driving differences between BOCS simulation results.</li>
+      <li><b>Assess</b> the relative effectiveness of bromine and chlorine in depleting stratospheric ozone.</li>
+      <li><b>Judge</b> the most effective pathways to reduce ozone depletion in the tropics and high latitudes.</li>
+      </ul>
+  </p>
+<h3>Exercise 1</h3>    
+  <p>
+    Go to the BOCS website and select the tab <a href="{{ url_for('Modelrun') }}">run model</a>. Explore the effect of changing the initial conditions for the amount of chlorine (Cl) and bromine (Br) on ozone (O3) mixing ratios. Note that the initial chemical conditions for BOCS are provided as mass mixing ratios (kg/kg of air). You will thus need to <b>convert</b> concentration measures accordingly.<br><br>
+    Conduct the following set of four simulations. For this you will have to change the corresponding BOCS inputs depending on the simulation (highlighted in red in Figure 1):
+    <ol class="tutorial">
+      <li><b>Run 1  - Baseline scenario.</b> Keep the initial conditions as per default. Save the output figure (right click on figure->Save image as) as well as the csv output file on your computer (Figure 2). The output figure visualizes time-dependent mass mixing ratios of 16 highly important chemical species. The csv output file provides number densities (in number of molecules per cubic metre) for all chemical species involved in the BOCS mechanism.</li>
+      <li><b>Run 2 - high reactive chlorine scenario.</b> Increase the initial mass mixing ratio of Cl by 10 ppbv (i.e. convert to mass mixing ratios). As before save your results, under different file names, to your computer.</li>
+      <li><b>Run 3 - high reactive bromine scenario.</b> Increase the initial mass mixing ratio of Br by 10 ppbv (i.e. convert to mass mixing ratios). Save your results.</li>
+      <li><b>Run 4 - high HCl.</b> Increase the initial mass mixing ratio of HCl by 10 ppbv (i.e. convert to mass mixing ratios). Save your results.</li>
+      <!-- <li><b>Run 5 - high BrCl.</b> Increase the initial mass mixing ratio of HCl by 10 ppbv (i.e. convert to mass mixing ratios). Save your results. -->
+     </ol>
+  </p>
+  Comment on the following questions and <b>explain</b> your results (where necessary use Excel to compare
+  <ul>
+    <li>Plot the ozone mixing ratios for each simulation as a function of time in Excel. What do you observe? Explain the relative order of ozone mixing ratios across the scenarios.</li>
+    <li>In the same way, compare the average concentrations of reactive chlorine (Cl+ClO) and reactive bromine (Br+BrO) on the fifth day in each simulations. What do you observe? How do you explain the results? What does this imply for the relative effectiveness of chlorine and bromine in depleting ozone?</li>
+    <li>Comment on whether you could think of additional chemical species and chemical reactions you learned about in ENV-5015A that would be useful to include in the BOCS chemical mechanism to study differences in the effectiveness of bromine and chlorine in depleting stratospheric ozone. What is the BOCS chemical mechanism currently missing for a more complete evaluation?</li>
+     <li>Comment on the implications of your results in terms of the necessity of reducing both CFC and Halon emissions to the atmosphere.</li>
+  </ul>
+  <p style="text-align: block; padding-top: 0px; padding-bottom: 15px; padding-left: 15px; float: right; display: block;"><img style="margin: 10px;" src="../static/images/output_file_highlighted.png" width=420 align="right"><br><br><br><span style="margin: 10px; font-size: small; width: 420px; display: inline-block; ">Figure 2. Once a model run has been conducted, a link to a csv output file, containing time-dependent number densities for all chemical species in the BOCS chemical mechanism becomes availbale. To save the output, right-click on the red highlighted link and select "Save link as".</span></p>
+<h3>Solutions to exercise 1</h3>    
 </div>
+
 {% endblock %}
