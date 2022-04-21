@@ -47,14 +47,14 @@ def odes(x, t, altitude, temperature, pressure):
     ### find/define photolysis rates j (lat, 0 lon, all altitudes) for all relevant reactions # TODO
     ### also find/define reaction rates k(p, T) on IUPAC/NASA
     # i.e. define numerical values for rate constants and photolysis rates, use: https://jpldataeval.jpl.nasa.gov/pdf/NASA-JPL%20Evaluation%2019-5.pdf and https://iupac-aeris.ipsl.fr/
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j1 = 3e-12*np.exp(-(50.0-altitude)/50.0)*np.sin((t/nr_seconds_per_day)*np.pi)#O2+hv->2O; in s-1;
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j1 = 3e-12*np.exp(-(50.0-altitude)/50.0)*np.sin((2*t/(nr_seconds_per_day))*np.pi)#O2+hv->2O; in s-1;
     else:
         j1 = 0.0
     # read from plot https://www.briangwilliams.us/atmospheric-chemistry/photolysis-rate-as-a-function-of-altitude.html - should later introduce dependence on season and latitude
     k2 = 6e-34*(temperature/300.0)**-2.6 # cm^3 molecule-1 s-1; IIUPAC; over 200-300K; O+O2+M
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j3 = 1e-18*np.exp(-(50.0-altitude)/50.0)*np.sin((t/nr_seconds_per_day)*np.pi) # as for j1; needs further specification. This is only a first test; O3+hv
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j3 = 1e-18*np.exp(-(50.0-altitude)/50.0)*np.sin((2*t/(nr_seconds_per_day))*np.pi) # as for j1; needs further specification. This is only a first test; O3+hv
     else:
         j3=0.0
     k3 = 2.15e-11*np.exp(-110.0/temperature) # O1D+M -> O+M , NASA: p.21 for M=N2; branching ratio; note O2 has a different one
@@ -78,20 +78,20 @@ def odes(x, t, altitude, temperature, pressure):
     k19 = 1.63e-10*np.exp(-60.0/temperature) # NASA; p.21; O1D+H2O->mostly 2OH; range 217-453K; cm3 molecule-1 s-1
     k20 = 1.19e-10*np.exp(-20.0/temperature)*0.61 # NASA; p.21; O1D+N2O->2NO; range 195-719K; cm3 molecule-1 s-1
     k21 = 1.8e-30*(temperature/298.0)**-3.0 # NASA; p.434; HNO3 formation; taking the low pressure limit for simplicity; cm6 molecule-2 s-1
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j22 = 0.5e-5*np.sin((t/nr_seconds_per_day)*np.pi) # dummy variable; currently hardly HNO3 photolysed; have to find a way to treat this.
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j22 = 0.5e-5*np.sin((2*t/(nr_seconds_per_day))*np.pi) # dummy variable; currently hardly HNO3 photolysed; have to find a way to treat this.
     else:
         j22 = 0.0
     k23 = 7.1e-12*np.exp(1270.0/temperature) # NASA; p.243; Cl+CH4->HCl+CH3; 181-1550K; cm3 molecule-1 s-1
     k24 = 1.8e-31*(temperature/298.0)**-3.4 # NASA; p.436; ClO+NO2+M->ClONO2+M; cm6 molecule-2 s-1
     k25 = 2.6e-12*np.exp(-290.0/temperature) # NASA; p.242; ClO+HO2->HOCl+O2; cm3 molecule-1 s-1
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j26 = 0.1*np.sin((t/nr_seconds_per_day)*np.pi) # NO2+hv->NO+O; have to treat the photolysis of NO2 later
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j26 = 0.1*np.sin((2*t/(nr_seconds_per_day))*np.pi) # NO2+hv->NO+O; have to treat the photolysis of NO2 later
     else:
         j26 = 0.0
     k27 = 1.9e-32*(temperature/298.0)**-3.6 # NASA; ClO+ClO+M->ClOOCl+M
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j28 = 0.3*k27*np.sin((t/nr_seconds_per_day)*np.pi) ### ClOOCl+hv->Cl+ClOO; assume part is photolysed again - to be specified later
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j28 = 0.3*k27*np.sin((2*t/(nr_seconds_per_day))*np.pi) ### ClOOCl+hv->Cl+ClOO; assume part is photolysed again - to be specified later
     else:
         j28=0.0
     k29 = 2.8e-10*np.exp(-1820.0/temperature)*0.79 # ClOO+M->Cl+O2+M; IUPAC, temperature range 160-300K
@@ -99,8 +99,8 @@ def odes(x, t, altitude, temperature, pressure):
     k31 = 9.5e-13*np.exp(-550.0/temperature) # NASA; BrO+ClO->Br+OClO; range 200-400K
     k32 = 2.6e-11*np.exp(1300.0/temperature) # NASA; p.325, range 267-423K; Br + OClO -> BrO+ClO
     k33 = 4.1e-13*np.exp(-290.0/temperature) # NASA, p.326, range 200-400K; BrO+ClO->BrCl+O2
-    if np.sin((t/nr_seconds_per_day)*np.pi) > 0.0:
-        j34 = 0.1e-3*np.sin((t/nr_seconds_per_day)*np.pi) # replace later
+    if np.sin((2*t/(nr_seconds_per_day))*np.pi) > 0.0:
+        j34 = 0.1e-3*np.sin((2*t/(nr_seconds_per_day))*np.pi) # replace later
     else:
         j34 = 0.0
         ### then define individual rate equations for all species involved
