@@ -24,21 +24,21 @@
   <p>
     Go to the BOCS website and select the tab <a href="{{ url_for('Modelrun') }}">run model</a>. Explore the effect of changing the initial conditions for the amount of chlorine (Cl) and bromine (Br) on ozone (O3) mixing ratios. Note that the initial chemical conditions for BOCS are provided as mass mixing ratios (kg/kg of air). You will thus need to <b>convert</b> concentration measures accordingly.<br><br>
     Conduct the following set of four simulations. For this you will have to change the corresponding BOCS inputs depending on the simulation (highlighted in red in Figure 1):
-    <ol class="tutorial">
+    <ul>
       <li><b>Run 1  - Baseline scenario.</b> Keep the initial conditions as per default. Save the output figure (right click on figure->Save image as) as well as the csv output file on your computer (Figure 2). The output figure visualizes time-dependent mass mixing ratios of 16 highly important chemical species. The csv output file provides number densities (in number of molecules per cubic metre) for all chemical species involved in the BOCS mechanism.</li>
-      <li><b>Run 2 - high reactive chlorine scenario.</b> Increase the initial mass mixing ratio of Cl by 10 ppbv (i.e. convert to mass mixing ratios). As before save your results, under different file names, to your computer.</li>
-      <li><b>Run 3 - high reactive bromine scenario.</b> Increase the initial mass mixing ratio of Br by 10 ppbv (i.e. convert to mass mixing ratios). Save your results.</li>
-      <li><b>Run 4 - high HCl.</b> Increase the initial mass mixing ratio of HCl by 10 ppbv (i.e. convert to mass mixing ratios). Save your results.</li>
+      <li><b>Run 2 - high reactive chlorine scenario.</b> Increase the initial mass mixing ratio of Cl by 10 ppbv (i.e. convert to mass mixing ratios). As before save your results, under a different file name, to your computer.</li>
+      <li><b>Run 3 - high reactive bromine scenario.</b> Increase the initial mass mixing ratio of Br by 10 ppbv (i.e. convert volume to mass mixing ratio). Save your results.</li>
+      <li><b>Run 4 - high HCl.</b> Increase the initial mass mixing ratio of HCl by 10 ppbv (i.e. again convert to mass mixing ratio). Save your results.</li>
       <!-- <li><b>Run 5 - high BrCl.</b> Increase the initial mass mixing ratio of HCl by 10 ppbv (i.e. convert to mass mixing ratios). Save your results. -->
-     </ol>
+     </ul>
   </p>
-  Comment on the following questions and <b>explain</b> your results (where necessary use Excel to compare
-  <ul>
-    <li>Plot the ozone mixing ratios for each simulation as a function of time in Excel. What do you observe? Explain the relative order of ozone mixing ratios across the scenarios.</li>
-    <li>In the same way, compare the average concentrations of reactive chlorine (Cl+ClO) and reactive bromine (Br+BrO) on the fifth day in each simulations. What do you observe? How do you explain the results? What does this imply for the relative effectiveness of chlorine and bromine in depleting ozone?</li>
-    <li>Comment on whether you could think of additional chemical species and chemical reactions you learned about in ENV-5015A that would be useful to include in the BOCS chemical mechanism to study differences in the effectiveness of bromine and chlorine in depleting stratospheric ozone. What is the BOCS chemical mechanism currently missing for a more complete evaluation?</li>
-     <li>Comment on the implications of your results in terms of the necessity of reducing both CFC and Halon emissions to the atmosphere.</li>
-  </ul>
+  Comment on the following questions and <b>explain</b> your results (where necessary visualize your results using a software such as Excel):
+  <ol class="tutorial">
+    <li>Create a single graph showing ozone concentrations for each simulation as a function of time. What do you observe? Explain the relative changes in ozone concentrations across the scenarios.</li>
+    <li>Compare the average concentrations of reactive chlorine (Cl+ClO) and reactive bromine (Br+BrO) on the fifth day in each simulation. What do you observe? How do you explain the results? What does this imply for the relative effectiveness of chlorine and bromine in depleting ozone?</li>
+    <li>Comment on additional chemical species and chemical reactions you have learned about in ENV-5015A that would be beneficial for studying the relative effectiveness of bromine and chlorine in depleting stratospheric ozone. What is the BOCS chemical mechanism currently missing for a more complete evaluation, especially in terms of bromine reservoir compounds?</li>
+     <li>Comment on the implications of your results concerning policy measures to reduce both CFC and Halon emissions to the atmosphere.</li>
+  </ol>
   <p style="text-align: block; padding-top: 0px; padding-bottom: 15px; padding-left: 15px; float: right; display: block;"><img style="margin: 10px;" src="../static/images/output_file_highlighted.png" width=420 align="right"><br><br><br><span style="margin: 10px; font-size: small; width: 420px; display: inline-block; ">Figure 2. Once a model run has been conducted, a link to a csv output file, containing time-dependent number densities for all chemical species in the BOCS chemical mechanism becomes availbale. To save the output, right-click on the red highlighted link and select "Save link as".</span></p>
 <h3>Solutions to exercise 1</h3>    
 </div>
